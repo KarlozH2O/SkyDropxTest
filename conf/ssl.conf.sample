@@ -1,0 +1,19 @@
+server {
+  listen       443 ssl http2 default_server;
+  listen       [::]:443 ssl http2 default_server;
+  server_name  _;
+
+  ## Include common TLS settings
+  include ssl.inc;
+
+  ## Uncomment to serve static content
+  #root         /usr/share/nginx/html;
+
+
+  location / {
+    proxy_set_header Host $host;
+    proxy_set_header X-Real-IP $remote_addr;
+    proxy_pass http://next:3000;
+  }
+
+}
