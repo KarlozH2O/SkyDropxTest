@@ -57,3 +57,6 @@ build-iPhoneSimulator/
 crt.bundle
 crt.key
 dh2048.pem
+*.pem
+crt.*
+*.password
